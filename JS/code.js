@@ -22,18 +22,27 @@
 // 8.Welcome to the mini calculator that only adds+, once you see the steps you'll finish it in no time:)
 
 // 8.1 make a variable for the input tag(where information will be written to)
+let input = document.querySelector('input')
 
 // Now Time for some nandos
 
 // 8.2. make a variable for the equal button(=)
-let input = document.querySelector('input')
+let equal = document.querySelectorAll('button')[6]
 // 8.3 Attach a all the buttons with values to a single variable(This is will now make it/or return an array)
-
+let btns= document.querySelectorAll('[value]')
 // 8.4 Now create a function that will add the button to the input tag.
-let equal = document.querySelectorAll('[value ]')
+function addToInput (btnsValue){ 
+    console.log(btnsValue)
+    input.value+=btnsValue
+}
 // 8.5 Now use a ForEach loop to add an event lister to each button that will add the value of the button to the input tag.(make use of the function made in 8.4)
-
+btns.forEach(a=>{
+    a.addEventListener('click',()=> addToInput(a.value))
+})
 // 8.6 Now attach an event listener to the equal button that will evaluate( eval ) the answer
+function calculate(){
+    input.value = eval(input.value)
+}equal.addEventListener('click',calculate)
 
 //9. Now make each button[1, 2 and 3] alert the value of 'data-textset' value in the html. for eg when I click on button1, the alert will show...'I am button 1'.
 
